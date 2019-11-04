@@ -3,7 +3,22 @@ from ubiwhere_challenge import db
 from flask_login import UserMixin
 from datetime import datetime
 
+"""
+In this package will be defined the database models
+"""
+
 class User(db.Model, UserMixin):
+
+    """
+    This class defines the user model
+
+    :param id: (int) id of user, primary key, generated automatically 
+    :param username: (string) username
+    :param email: (string) email
+    :param password: (string) password
+    :param occurrences: (Occurrence) occurrences
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     name = db.Column(db.String(80), nullable=False)
@@ -22,6 +37,21 @@ class User(db.Model, UserMixin):
 
 
 class Occurrence(db.Model):
+    """
+    This class defines the user model
+
+    :param id: (int) id of occurrence, primary key, generated automatically 
+    :param id_user: (int) id of user
+    :param description: (string) description of the occurrence
+    :param date_created: (datetime) date of creation, default=datetime.now()
+    :param date_updated: (datetime) updated date, default=datetime.now()
+    :param state: (int) state of the occurrence, default=0
+    :param category: (string) category of the occurrence
+    :param latitude: (float) latitute
+    :param longitude: (float) longitude
+    :param distance: (float) distance of the occurrence to the ubiwhere hq
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     description = db.Column(db.String(200), nullable=False)
