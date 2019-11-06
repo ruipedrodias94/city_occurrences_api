@@ -58,7 +58,7 @@ def register():
         # Add the user to the DB
         db.session.add(user_db)
         db.session.commit()
-    return user_json
+    return {"code": 200, "description": "The user was successful created"}
 
 
 @auth.route("/login", methods=["POST", "GET"])
@@ -90,7 +90,7 @@ def login():
         else:
             login_user(user, duration=timedelta(hours=1))
 
-    return {"sucess": current_user.id}
+    return {"code": 200, "description": "The user was successful logged in"}
 
 
 @auth.route('/logout')

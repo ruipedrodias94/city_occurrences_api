@@ -4,13 +4,9 @@ Pretende-se uma API REST que permita a gestão de ocorrências em ambiente urban
   
 
 * CONSTRUCTION: planned road work
-
 * SPECIAL_EVENT: special events (fair, sport event, etc.)
-
 * INCIDENT: accidents and other unexpected events
-
 * WEATHER_CONDITION: weather condition affecting the road
-
 * ROAD_CONDITION: status of the road that might affect travellers (potholes, bad pavement, etc.)
 
   
@@ -18,11 +14,12 @@ Pretende-se uma API REST que permita a gestão de ocorrências em ambiente urban
 ## Requisitos
 
 1. API REST
-	1.1. Tem de permitir a adição de ocorrências (com a localização geográfica, e autor associados). Nota: O estado default será sempre por validar quando estas são criadas. -> DONE
+	
+    * Tem de permitir a adição de ocorrências (com a localização geográfica, e autor associados). Nota: O estado default será sempre por validar quando estas são criadas.
 
-	1.2. Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema) - DONE
+	* Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema)
 
-	1.3.Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance) - DONE
+	* Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance)
 
   
 

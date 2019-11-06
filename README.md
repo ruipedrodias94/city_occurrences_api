@@ -2,12 +2,14 @@
 # Ubiwhere Challenge
 ### Developed by Rui Pedro Dias
 
-
 ## Abstract
-[a relative link](docs/ABSTRACT.md)
+[ABSTRACT](docs/ABSTRACT.md)
 
 ## Instalação
+[INSTALAÇÃO](docs/INSTALATION.md)
 
-## Postman Collection
+## How it works
+[USEAPP](docs/USEAPP.md)
 
-
+## Modelo da aplicação
+[MODELO](docs/MODELS.md)
