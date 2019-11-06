@@ -5,7 +5,11 @@
 
 ### Developed by Rui Pedro Dias
 
-  
+
+## Instalação
+
+## Postman Collection
+
 
 ## Abstract
 
@@ -32,7 +36,7 @@ Pretende-se uma API REST que permita a gestão de ocorrências em ambiente urban
 
 	1.2. Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema) - DONE
 
-	1.3.Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance)
+	1.3.Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance) - DONE
 
   
 

@@ -1,7 +1,15 @@
+"""
+.. module:: models
+   :synopsis: All the models used to represent the objects
+.. moduleauthor:: Rui Dias <https://github.com/ruipedrodias94>
+"""
+
 from flask_sqlalchemy import SQLAlchemy
-from ubiwhere_challenge import db
+from ubiwhere_challenge import db, ma
 from flask_login import UserMixin
 from datetime import datetime
+import os
+
 
 """
 In this package will be defined the database models
@@ -10,13 +18,18 @@ In this package will be defined the database models
 class User(db.Model, UserMixin):
 
     """
-    This class defines the user model
+    User model
 
-    :param id: (int) id of user, primary key, generated automatically 
-    :param username: (string) username
-    :param email: (string) email
-    :param password: (string) password
-    :param occurrences: (Occurrence) occurrences
+    :param id: Author id
+    :type id: int
+    :param username: Username
+    :type username: str
+    :param email: Email
+    :type email: str
+    :param password: Password
+    :type password: str
+    :param occurrences: Occurrences
+    :type occurrences: Occurrence
     """
 
     id = db.Column(db.Integer, primary_key=True)
@@ -38,18 +51,28 @@ class User(db.Model, UserMixin):
 
 class Occurrence(db.Model):
     """
-    This class defines the user model
+    Occurrence model
 
-    :param id: (int) id of occurrence, primary key, generated automatically 
-    :param id_user: (int) id of user
-    :param description: (string) description of the occurrence
-    :param date_created: (datetime) date of creation, default=datetime.now()
-    :param date_updated: (datetime) updated date, default=datetime.now()
-    :param state: (int) state of the occurrence, default=0
-    :param category: (string) category of the occurrence
-    :param latitude: (float) latitute
-    :param longitude: (float) longitude
-    :param distance: (float) distance of the occurrence to the ubiwhere hq
+    :param id: Id of occurrence
+    :type id: int
+    :param id_user: Id of user
+    :type id_user: int
+    :param description: Description of the occurrence
+    :type description: str
+    :param date_created: Date of creation, default=datetime.now()
+    :type date_created: datetime
+    :param date_updated: Updated date, default=datetime.now()
+    :type date_updated: datetime
+    :param state: State of the occurrence, default=0
+    :type state: int
+    :param category: Category of the occurrence
+    :type category: str
+    :param latitude: Latitute
+    :type latitude: float
+    :param longitude: Longitude
+    :type longitude: float
+    :param distance: Distance of the occurrence
+    :type distance: float
     """
 
     id = db.Column(db.Integer, primary_key=True)
@@ -77,3 +100,19 @@ class Occurrence(db.Model):
     def __repr__(self):
         return "<Occurrence %r>" % self.description
 
+
+class UserSchema(ma.ModelSchema):
+    """
+    User Schema - Marsmallow
+    """
+
+    class Meta:
+        model = User
+
+class OccurrenceSchema(ma.ModelSchema):
+    """
+    Occurrence Schema - Marsmallow
+    """
+    
+    class Meta:
+        model = Occurrence
