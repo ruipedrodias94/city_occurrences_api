@@ -11,7 +11,7 @@ Antes de começar a utilizar a aplicação, o utilizador do sistema deve criar u
 127.0.0.1:5000/register
 ```
 De seguida é apresentado um exemplo desse pedido HTTP.
-``` html
+``` HTTP
 POST /register HTTP/1.1
 Host: 127.0.0.1:5000
 Content-Type: application/json
@@ -39,7 +39,7 @@ Após criado um administrador de sistema, podem ser criadas contas de utilizador
 ```
 De seguida é apresentado um exemplo desse pedido HTTP.
 
-``` html
+``` http
 POST /register HTTP/1.1
 Host: 127.0.0.1:5000
 cache-control: no-cache
@@ -64,7 +64,7 @@ Um administrador ou utilizador pode fazer login no sistema. Isto garante que os 
 127.0.0.1:5000/login
 ```
 De seguida é apresentado um exemplo desse pedido HTTP. Devem ser realizadas as alterações com as credênciais respetivas.
-``` html
+``` http
 POST /login HTTP/1.1
 Host: 127.0.0.1:5000
 Content-Type: application/json
@@ -89,7 +89,7 @@ De igual forma, o utilizador pode fazer logout do sistema. Tal é possível, rea
 127.0.0.1:5000/logout
 ```
 De seguida é apresentado um exemplo desse pedido HTTP. 
-``` html
+``` http
 GET /logout HTTP/1.1
 Host: 127.0.0.1:5000
 Content-Type: application/json
@@ -109,7 +109,7 @@ Um utilizador pode inserir novas ocorrências no sistema. Tal é possível, real
 127.0.0.1:5000/occurrence
 ```
 De seguida é apresentado um exemplo desse pedido HTTP. 
-``` html
+``` http
 POST /occurrence/ HTTP/1.1
 Host: 127.0.0.1:5000
 Content-Type: application/json
