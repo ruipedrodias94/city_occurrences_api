@@ -55,7 +55,7 @@ def create_occurrence():
 
         else:
             # The object was not created an could not be added to the database
-            return resource_not_found(404, "The object occurrence could not be created, and it wasn't added to the database")
+            return {"error": "The object occurrence could not be created, and it wasn't added to the database"}
 
         return {"code": 200, "description": "The occurrence was successful created"}
 
@@ -75,13 +75,10 @@ def get_occurrences_by_author(id_user):
     # Query the database
     occurrence_db = Occurrence.query.filter_by(id_user=id_user).all()
 
-    # If exists
-    if occurrence_db:
-        output = return_json(occurrence_db)
-        #occurrence_model = OccurrenceSchema(many=True)
-        #output = occurrence_model.dump(occurrence_db)
-    else:
-        return resource_not_found(404, "Could not find any occurrences for the given author")
+    output = return_json(occurrence_db)
+
+    if not output:
+        return {"code": 200, "description": "Could not find any occurrences with that author"}
 
     return jsonify(output)
 
@@ -101,13 +98,10 @@ def get_occurrences_by_category(category):
     # Query the database
     occurrence_db = Occurrence.query.filter_by(category=category).all()
 
-    # If exists
-    if occurrence_db:
-        output = return_json(occurrence_db)
-        #occurrence_model = OccurrenceSchema(many=True)
-        #output = occurrence_model.dump(occurrence_db)
-    else:
-        return resource_not_found(404, "Could not find any occurrences for the given category")
+    output = return_json(occurrence_db)
+
+    if not output:
+        return {"code": 200, "description": "Could not find any occurrences with that category"}
 
     return jsonify(output)
 
@@ -129,13 +123,10 @@ def get_occurrences_by_location(distance):
     # Query the database
     occurrence_db = Occurrence.query.filter(Occurrence.distance <= distance)
 
-    # If exists
-    if occurrence_db:
-        output = return_json(occurrence_db)
-        #occurrence_model = OccurrenceSchema(many=True)
-        #output = occurrence_model.dump(occurrence_db)
-    else:
-        return resource_not_found(404, "Could not find any occurrences for the given distance")
+    output = return_json(occurrence_db)
+
+    if not output:
+        return {"code": 200, "description": "Could not find any occurrences to that distance"}
 
     return jsonify(output)
 
@@ -164,7 +155,7 @@ def update_occurrence_by_id(occurrence_id):
             occurrence_db.date_updated = datetime.now()
             db.session.commit()
         else:
-            return resource_not_found(404, "Could not find any occurrence for the given id")
+            return {"code": 200, "description": "Could not find any occurrence with that id"}
     else:
         return forbidden(403, "The user has not permission to complete the request")
 
@@ -183,12 +174,9 @@ def get_occurrences():
     # Query the database
     occurrence_db = Occurrence.query.order_by(Occurrence.date_created).all()
 
-    # If exists
-    if occurrence_db:
-        output = return_json(occurrence_db)
-        #occurrence_model = OccurrenceSchema(many=True)
-        #output = occurrence_model.dump(occurrence_db)
-    else:
-        return resource_not_found(404, "Could not find any occurrences")
+    output = return_json(occurrence_db)
+
+    if not output:
+        return {"code": 200, "description": "Could not find any occurrences in the database"}
 
     return jsonify(output)
