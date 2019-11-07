@@ -1,6 +1,9 @@
 # Como usar a aplicação
 Nesta seção são apresentados os diversos métodos para utilização da aplicação
 
+### Postman Collection
+https://www.getpostman.com/collections/aadea80379b033b62d2d
+
 ## Criar uma conta de Administrador de sistema
 
 Antes de começar a utilizar a aplicação, o utilizador do sistema deve criar uma conta de utilizador. Tal é possível, realizando um request POST ao Endpoint: 

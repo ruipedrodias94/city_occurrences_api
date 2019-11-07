@@ -49,7 +49,7 @@ def register():
 
         if user:
             # The user exists, return error
-            pass
+            return {"error": "The user exist in the database"}
         else:
             # Create new user
             user_db = User(username=username, name=name,
