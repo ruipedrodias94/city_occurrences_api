@@ -1,5 +1,5 @@
 
-# Ubiwhere Challenge
+# City occurrences API
 ### Developed by Rui Pedro Dias
 
 ## Abstract
